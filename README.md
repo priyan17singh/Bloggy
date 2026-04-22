@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📝 AI-Powered Blog Platform
 
-## Getting Started
+A full‑stack blog platform with role‑based access (Author, Viewer, Admin), AI‑generated post summaries using **Google Gemini**, and real‑time comments. Built with **Next.js 15**, **Supabase**, and **Tailwind CSS**.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[Click here!](https://bloggy-u.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## ✨ Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Authentication** – Sign up / Login via Supabase Auth (email confirmation)
+- **Role‑Based Access**
+  - **Author** – Create posts, edit own posts, view comments
+  - **Viewer** – Read posts, view AI summaries, comment on posts
+  - **Admin** – Edit/delete any post, delete any comment
+- **AI Summary Generation** – Google Gemini API generates a ~200‑word summary when a post is created (generated only once and stored)
+- **Blog Posts**
+  - Title, featured image, rich body content, comments section
+  - Search posts (title / body)
+  - Pagination (6 posts per page)
+  - Edit / Delete (author or admin)
+- **Comments** – Add and delete comments (users can delete own comments, admins can delete any)
+- **Responsive UI** – Modern card layout, hover effects, gradient hero section
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Layer          | Technology                                                                 |
+|----------------|----------------------------------------------------------------------------|
+| **Frontend**   | Next.js 15 (App Router), React, Tailwind CSS                              |
+| **Backend**    | Next.js Server Actions + API Routes                                       |
+| **Auth**       | Supabase Auth (email/password)                                            |
+| **Database**   | Supabase PostgreSQL with Row Level Security (RLS)                         |
+| **AI**         | Google Gemini API (`gemini-pro-latest`)                                   |
+| **Deployment** | Vercel                                                                     |
+| **Version Control** | Git + GitHub                                                          |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🤖 AI Summary Generation
+- When a user creates a post, the server action createPost calls generateSummary().
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- The summary is generated using Google Gemini (gemini-pro-latest model).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The summary is stored in the posts.summary column and never regenerated (cost optimization).
+
+- If the API fails or rate‑limits (429), the system falls back to a local text summary – the app never breaks.
+
+---
+
+## Role Management
+- New users are automatically assigned the viewer role via a database trigger.
+
+- To promote a user to author or admin, update the role column in the public.users table directly (Supabase dashboard or SQL).

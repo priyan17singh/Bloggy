@@ -28,8 +28,8 @@ export default async function RootLayout({ children }) {
             <div className="space-x-4">
               {!user ? (
                 <>
-                  <Link href="/auth/login">Login</Link>
-                  <Link href="/auth/signup">Sign Up</Link>
+                  <Link href="/auth/login"><button type="button" className="text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-full text-sm px-4 py-2.5 focus:outline-none">Login</button></Link>
+                  <Link href="/auth/signup"><button type="button" className="text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-full text-sm px-4 py-2.5 focus:outline-none">Sign Up</button></Link>
                 </>
               ) : (
                 <>
