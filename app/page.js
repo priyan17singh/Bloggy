@@ -29,7 +29,7 @@ export default async function Home({ searchParams }) {
       <section className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white py-20 mb-12 rounded-b-3xl shadow-xl">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-extrabold mb-4 animate-fade-in">
-            Blog Platform
+            Bloggy
           </h1>
           <p className="text-xl md:text-2xl opacity-90 max-w-2xl mx-auto">
             Discover insightful articles, AI‑powered summaries, and join the conversation.
@@ -167,9 +167,9 @@ export default async function Home({ searchParams }) {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8 mt-16">
+      <footer className="bg-gray-800 text-white py-4 mt-8 max-h-10">
         <div className="container mx-auto px-4 text-center">
-          <p>© 2025 Blog Platform – Powered by Next.js, Supabase & Google AI</p>
+          <p>© 2025 Bloggy – Powered by Next.js, Supabase & Google AI</p>
           <p className="text-sm text-gray-400 mt-2">Share your thoughts, get AI summaries, and engage with the community.</p>
         </div>
       </footer>

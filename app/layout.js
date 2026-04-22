@@ -3,10 +3,12 @@ import './globals.css'
 import Link from 'next/link'
 import { createServerClient } from '@/lib/supabase/server'
 
+import Image from 'next/image'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Blog Platform',
+  title: 'Bloggy',
   description: 'AI-powered blog with role-based access',
 }
 
@@ -22,9 +24,9 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <nav className="bg-gray-800 text-white p-4">
+        <nav className="bg-gray-800 text-white p-4 text-2xl" >
           <div className="container mx-auto flex justify-between">
-            <Link href="/" className="font-bold">Blog Platform</Link>
+            <Link href="/" className="font-bold">Bloggy</Link>
             <div className="space-x-4">
               {!user ? (
                 <>
