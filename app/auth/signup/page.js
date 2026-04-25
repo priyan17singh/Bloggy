@@ -32,7 +32,7 @@ export default function SignupPage() {
       setLoading(false)
     } else {
       // Redirect to email verification page
-      router.push('/login')
+      router.push('/auth/login')
     }
   }
 
